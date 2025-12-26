@@ -21,10 +21,8 @@ Pantalla principal: se ve un gráfico de la estación favorita con sus estadíst
 
 GRAFICOS:
 
-GRAFICO DEL TOP ESTACIONES  
-   Barras mostrando las 5 estaciones con más e-bikes disponibles .  
-   Sirve para ver rápido dónde hay más bicis eléctricas.
-
+GRAFICO DE LA ESTACÍON FAVORTITA
+Gráfico donde se muestra la estación marcada de favortia y sus estadísitcas
   GRÁFICO ESTADO DE ESTACION
     PieChart mostranndo:
       Bicis mecánicas
