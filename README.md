@@ -15,7 +15,7 @@ Se puede:
 
 
 FUNCIONAMIENTO Y ESTRUCTURA DE LA APLICACION
-Pantalla principal: se ve un gráfico de las 5 estaciones con más e-bikes y la lista de estaciones.
+Pantalla principal: se ve un gráfico de la estación favorita con sus estadísticas de biciletas.
  Pantalla de detalle: se ve un PieChart con bicis mecánicas, e-bikes y anclajes libres, y un bloque que dice “¿Me compensa bajar ahora?”.
  Debajo del bloque hay un botón grande para exportar un PDF con todos los datos.
 
@@ -34,7 +34,7 @@ GRAFICO DEL TOP ESTACIONES
 
 Justificación de las gráficas elegidas
 
-Gráfico A – Comparativo global (Top 5 estaciones por e-bikes)
+Gráfico A – Estadísitcas de la estación favvorita
 
 Tipo: Barras (BarChart)
 Qué muestra: Las cinco estaciones con más e-bikes disponibles en la ciudad.
@@ -42,7 +42,7 @@ Por qué se eligió: Permite ver de un vistazo cuáles estaciones tienen más bi
 
 Gráfico B – Estado de estacin concreta (PieChart)
 
-Tipo: Pie/Donut (PieChart)
+Tipo: Donut
 Qué muestra: Distribución de bicis mecánicas disponibles, e-bikes disponibles y anclajes libres.
 Por qué se eligió: Da una lectura inmediata del estado de la estación. Permite al usuario decidir fácilmente si conviene bajar ahora. Visualmente es más intuitiv que las barras para un solo conjunto de datos.
 
