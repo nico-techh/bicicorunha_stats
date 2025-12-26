@@ -1,50 +1,33 @@
 import 'package:flutter/material.dart';
-
-import '../data/models/station.dart';
-import '../data/models/station_status.dart';
-import '../data/repositories/station_repository.dart';
+import '../models/station.dart';
+import '../models/station_status.dart';
+import '../repositories/station_repository.dart';
 
 class HomeViewModel extends ChangeNotifier {
   final StationRepository _repository = StationRepository();
 
   List<Station> stations = [];
   List<StationStatus> status = [];
+  Station? favoriteStation;
 
-  bool isLoading = false;
-  String? errorMessage;
-
-  Future<void> loadData() async {
-    isLoading = true;
-    errorMessage = null;
-    notifyListeners();
-
-    try {
-      stations = await _repository.fetchStations();
-      status = await _repository.fetchStationStatus();
-    } catch (e) {
-      errorMessage = 'Error cargando datos de Bici Coruña';
-    }
-
-    isLoading = false;
+  Future<void> loadStations() async {
+    stations = await _repository.fetchStations();
+    status = await _repository.fetchStatus();
     notifyListeners();
   }
 
-  /// Estación favorita (ejemplo: la primera)
-  Station? get favoriteStation {
-    if (stations.isEmpty) return null;
-    return stations.first;
+  void setFavorite(Station station) {
+    favoriteStation = station;
+    notifyListeners();
   }
 
   StationStatus? statusForStation(String stationId) {
     return status.firstWhere(
-      (s) => s.stationId == stationId,
-      orElse: () => StationStatus(
-        stationId: stationId,
-        bikesAvailable: 0,
-        ebikesAvailable: 0,
-        docksAvailable: 0,
-        lastReported: 0,
-      ),
-    );
+        (s) => s.stationId == stationId,
+        orElse: () => StationStatus(
+            stationId: stationId,
+            numBikesAvailable: 0,
+            numDocksAvailable: 0,
+            lastUpdated: DateTime.now()));
   }
 }

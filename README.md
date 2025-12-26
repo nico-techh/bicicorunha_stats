@@ -1,16 +1,67 @@
-# bicicoruna_stats
+flutter clean
+flutter pub get
+flutter run -d chrome
 
-A new Flutter project.
+APLICACION BICICORUÑA STATS
 
-## Getting Started
+Esta app muestra información de las estaciones de bicicletas de A Coruña en tiempo real.  
 
-This project is a starting point for a Flutter application.
+Se puede:
 
-A few resources to get you started if this is your first Flutter project:
+ 1.- Ver tu estación favorita con estadísticas rápidas.
+ 2.- Ver otras estaciones y sus datos.
+ 3. Saber si conviene bajar a la estación ahora.
+ 4.- Generar un PDF con toda la info de la estación.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+FUNCIONAMIENTO Y ESTRUCTURA DE LA APLICACION
+Pantalla principal: se ve un gráfico de las 5 estaciones con más e-bikes y la lista de estaciones.
+ Pantalla de detalle: se ve un PieChart con bicis mecánicas, e-bikes y anclajes libres, y un bloque que dice “¿Me compensa bajar ahora?”.
+ Debajo del bloque hay un botón grande para exportar un PDF con todos los datos.
+
+GRAFICOS:
+
+GRAFICO DEL TOP ESTACIONES  
+   Barras mostrando las 5 estaciones con más e-bikes disponibles .  
+   Sirve para ver rápido dónde hay más bicis eléctricas.
+
+  GRÁFICO ESTADO DE ESTACION
+    PieChart mostranndo:
+      Bicis mecánicas
+      E-bikes
+      Anclajes libres  
+    Sirve para ver de un vistazo cómo está la estación y decidir si conviene ir.
+
+Justificación de las gráficas elegidas
+
+Gráfico A – Comparativo global (Top 5 estaciones por e-bikes)
+
+Tipo: Barras (BarChart)
+Qué muestra: Las cinco estaciones con más e-bikes disponibles en la ciudad.
+Por qué se eligió: Permite ver de un vistazo cuáles estaciones tienen más bicis eléctricas. Ayuda al usuario a decidir rápidamente dónde ir si quiere coger una e-bike. Cumple la regla de aportar información útil, no solo decoración.
+
+Gráfico B – Estado de estacin concreta (PieChart)
+
+Tipo: Pie/Donut (PieChart)
+Qué muestra: Distribución de bicis mecánicas disponibles, e-bikes disponibles y anclajes libres.
+Por qué se eligió: Da una lectura inmediata del estado de la estación. Permite al usuario decidir fácilmente si conviene bajar ahora. Visualmente es más intuitiv que las barras para un solo conjunto de datos.
+
+
+Genera un PDF con:
+    Nombre de la estación
+    Estado actual
+    Fecha/hora de generación
+    Fecha/hora de última actualización
+
+DEPENDENCIAS: 
+
+
+La aplicación utiliza varias librerías para funcionar correctamente: 
+http se usa para hacer las peticiones a la API de las estaciones de bicicletas. 
+provider se usa para manejar el estado de la aplicación y que los datos se actualicen automáticamente en la interfaz. fl_chart se utiliza para crear los gráficos de barras y PieChart que muestran la información de las estaciones. 
+pdf permite generar archivos PDF con los datos de una estación y printing permite visualizar y exportar esos PDFs desde la aplicación.
+
+
+CAPTURAS:
+
+Las capturas de pantalla están guardadas dentro de la carpeta CAPTURAS DE PANTALLA, ubicada dentro de la estructura de carpetas del proyecto.
